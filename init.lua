@@ -56,7 +56,7 @@ require('lspconfig').ruff.setup({
 require'nvim-treesitter.configs'.setup{
   ensure_installed = {
     "c", "cpp", "lua", "vim", "vimdoc", "javascript", "html",
-    "python", "toml", "markdown", "json", "xml"
+    "python", "toml", "markdown", "json", "xml", "yaml"
   },
   highlight={enable=true}
 }
