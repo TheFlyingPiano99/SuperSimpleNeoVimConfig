@@ -1,2 +1,2 @@
 # SuperSimpleNeoVimConfig
-Super simple NeoVim editor configuration files
+Super simple NeoVim configuration file focused on basic code development in Python.
