@@ -2,10 +2,13 @@
 Super simple NeoVim configuration file focused on basic code development in Python.
 
 
-# Install
-Clone the content of this repository to `~/.config/nvim/` on Linux or MacOS (on Windows `~/AppData/Local/nvim/`)!
+# Installation
+Clone the content of this repository to `~/.config/nvim/` (on Linux or MacOS) or to `~/AppData/Local/nvim/` (on Windows)!
 Install the Ruff LSP!
-Initialize the submodules:
+Initialize the required submodules:
 ```
 git submodule init
+git submodule update
 ```
+Run NeoVim by `nvim`!
+
