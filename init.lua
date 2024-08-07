@@ -47,6 +47,10 @@ require('lspconfig').ruff.setup({
   }
 })
 
+-- C/C++:
+-- IMPORTANT: clangd must be installed separately!
+require'lspconfig'.clangd.setup{}
+
 ---------------------------------------------
 
 -- NVIM-TREESITTER (For code parsing.)

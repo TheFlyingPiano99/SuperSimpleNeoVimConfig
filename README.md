@@ -1,10 +1,12 @@
 # SuperSimpleNeoVimConfig
-Super simple NeoVim configuration file focused on basic code development in Python.
+Super simple NeoVim configuration file focused on basic code development in Python or C/C++.
 
 
 # Installation
 Clone the content of this repository to `~/.config/nvim/` (on Linux or MacOS) or to `~/AppData/Local/nvim/` (on Windows)!
-Install the Ruff LSP!
+
+Install the Ruff LSP for Python development or install clangd for C/C++ development!
+
 Initialize the required submodules:
 ```
 git submodule init
