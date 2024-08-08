@@ -27,7 +27,16 @@ require("lazy").setup({
     {
       'nvim-treesitter/nvim-treesitter',
       lazy = false,
-      opts = {}
+      opts = {},
+      config = function()
+        require'nvim-treesitter.configs'.setup{
+          ensure_installed = {
+            "c", "cpp", "lua", "vim", "vimdoc", "javascript", "html",
+            "python", "toml", "markdown", "json", "xml", "yaml"
+          },
+          highlight={enable=true}
+        }
+      end
     },
     {
       "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
@@ -52,7 +61,11 @@ require("lazy").setup({
     {
       'catppuccin/nvim',
       name = "catppuccin",
-      priority = 1000
+      lazy = false,
+      priority = 1000,
+      config = function()
+        vim.cmd([[colorscheme catppuccin]])
+      end
     }
   },
   -- Configure any other settings here. See the documentation for more details.

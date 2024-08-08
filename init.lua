@@ -1,7 +1,8 @@
 -- Simple NeoVim editor configuration
 -- As a Python LSP we use Ruff
+-- As a C/C++ LSP we use clangd
 -- For code highlighting we use nvim-treesitter
--- Our colortheme of choice is Catppuccin
+-- Our colorsheme of choice is Catppuccin
 
 ---------------------------------------------
 
@@ -31,31 +32,7 @@ vim.g.netrw_winsize = 20    -- This option controls the size of the window used 
 vim.g.netrw_banner = 0      -- Set netrw banner (disable)
 
 ---------------------------------------------
+
 -- LAZY
---
 require("config.lazy")
-
-----------------------------------------------------
-
--- LSP CONFIGURATION (For linting.)
-
-
----------------------------------------------
-
--- NVIM-TREESITTER (For code parsing.)
-
-require'nvim-treesitter.configs'.setup{
-  ensure_installed = {
-    "c", "cpp", "lua", "vim", "vimdoc", "javascript", "html",
-    "python", "toml", "markdown", "json", "xml", "yaml"
-  },
-  highlight={enable=true}
-}
-
---------------------------------------------
-
--- COLOR SCHEME
-
-require("catppuccin")
-vim.cmd("colorscheme catppuccin")
 
