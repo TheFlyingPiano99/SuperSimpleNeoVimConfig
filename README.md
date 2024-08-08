@@ -24,3 +24,7 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 
 Run NeoVim by `nvim`!
 
+On first launch of NeoVim ignore the error messages and run `:PlugUpdate`!
+
+Restart NeoVim! Now everything should work correctly.
+

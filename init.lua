@@ -32,9 +32,40 @@ vim.g.netrw_banner = 0      -- Set netrw banner (disable)
 
 ---------------------------------------------
 
--- LSP CONFIGURATION (For linting.)
+-- VIM-PLUG
+-- IMPORTANT plug.vim must be downloaded separately using one of the commands listed in the REAMDE.md
+local vim = vim
+local Plug = vim.fn['plug#']
 
--- IMPORTANT: nvim-lspconfig must be cloned like: git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig
+vim.call('plug#begin')
+
+Plug('neovim/nvim-lspconfig')
+
+Plug(
+  'nvim-treesitter/nvim-treesitter',
+  {
+    ['do'] =  function()
+                vim.fn[':TSUpdate']()
+              end 
+  }
+)
+
+Plug('mfussenegger/nvim-dap')
+
+Plug('mfussenegger/nvim-dap-python')
+
+Plug(
+  'catppuccin/nvim',
+  {
+    ['as'] = 'catppuccin'
+  }
+)
+
+vim.call('plug#end')
+
+----------------------------------------------------
+
+-- LSP CONFIGURATION (For linting.)
 
 -- Python:
 -- IMPORTANT: Ruff v5.3 (or higher version) must be installed separately!
@@ -54,8 +85,6 @@ require'lspconfig'.clangd.setup{}
 ---------------------------------------------
 
 -- NVIM-TREESITTER (For code parsing.)
-
--- IMPORTANT: nvim-treesitter must be cloned like: git clone https://github.com/nvim-treesitter/nvim-treesitter.git ~/.config/nvim/pack/nvim/start/nvim-treesitter
 
 require'nvim-treesitter.configs'.setup{
   ensure_installed = {
