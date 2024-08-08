@@ -24,8 +24,55 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- import your plugins
-    { import = "plugins" },
+    {
+      'nvim-treesitter/nvim-treesitter',
+      lazy = false,
+      opts = {}
+    },
+    {
+      'mfussenegger/nvim-dap',
+      lazy = false,
+      opts = {}
+    },
+    {
+      'mfussenegger/nvim-dap-python',
+      lazy = false,
+      opts = {}
+    },
+    {
+      "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
+      lazy = false, -- REQUIRED: tell lazy.nvim to start this plugin at startup
+      dependencies = {
+        -- main one
+        { "ms-jpq/coq_nvim", branch = "coq" },
+
+        -- 9000+ Snippets
+        { "ms-jpq/coq.artifacts", branch = "artifacts" },
+
+        -- lua & third party sources -- See https://github.com/ms-jpq/coq.thirdparty
+        -- Need to **configure separately**
+        { 'ms-jpq/coq.thirdparty', branch = "3p" }
+        -- - shell repl
+        -- - nvim lua api
+        -- - scientific calculator
+        -- - comment banner
+        -- - etc
+      },
+      init = function()
+        vim.g.coq_settings = {
+            auto_start = true, -- if you want to start COQ at startup
+            -- Your COQ settings here
+        }
+      end,
+      config = function()
+        -- Your LSP settings here
+      end,
+    },
+    {
+      'catppuccin/nvim',
+      name = "catppuccin",
+      priority = 1000
+    }
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.

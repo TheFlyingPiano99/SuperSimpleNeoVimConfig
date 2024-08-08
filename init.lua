@@ -70,28 +70,12 @@ require'nvim-treesitter.configs'.setup{
 
 -- DEBUG ADAPTER PROTOCOL
 -- IMPORTANT: nvim-dap must be cloned like: git clone https://github.com/mfussenegger/nvim-dap.git ~/.config/nvim/pack/nvim/start/nvim-dap
-rezquire("dap")
+require("dap")
 
 -- DAP setup for Python:
 -- IMPORTANT: nvim-dap-python must be cloned like: git clone https://github.com/mfussenegger/nvim-dap-python.git ~/.config/nvim/pack/nvim/start/nvim-dap-python
 require("dap-python").setup("python")
 --------------------------------------------
-
--- LUASNIP
-
-local ls = require("luasnip")
-
-vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
-
-vim.keymap.set({"i", "s"}, "<C-E>", function()
-	if ls.choice_active() then
-		ls.change_choice(1)
-	end
-end, {silent = true})
-
-require("luasnip.loaders.from_vscode").lazy_load()
 
 
 --------------------------------------------
