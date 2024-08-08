@@ -31,49 +31,9 @@ vim.g.netrw_winsize = 20    -- This option controls the size of the window used 
 vim.g.netrw_banner = 0      -- Set netrw banner (disable)
 
 ---------------------------------------------
-
--- VIM-PLUG
--- IMPORTANT plug.vim must be downloaded separately using one of the commands listed in the REAMDE.md
-local vim = vim
-local Plug = vim.fn['plug#']
-
-vim.call('plug#begin')
-
-Plug('neovim/nvim-lspconfig')
-
-Plug(
-  'nvim-treesitter/nvim-treesitter',
-  {
-    ['do'] = function()
-      vim.fn[':TSUpdate']()
-    end 
-  }
-)
-
-Plug('mfussenegger/nvim-dap')
-
-Plug('mfussenegger/nvim-dap-python')
-
-Plug(
-  'catppuccin/nvim',
-  {
-    ['as'] = 'catppuccin'
-  }
-)
-
-Plug('rafamadriz/friendly-snippets')
-
-Plug(
-  'L3MON4D3/LuaSnip',
-  {
-    ['tag'] = 'v2.*',
-    ['do'] = function()
-      vim.cmd('make install_jsregexp')
-    end
-  }
-)
-
-vim.call('plug#end')
+-- LAZY
+--
+require("config.lazy")
 
 ----------------------------------------------------
 
@@ -110,7 +70,7 @@ require'nvim-treesitter.configs'.setup{
 
 -- DEBUG ADAPTER PROTOCOL
 -- IMPORTANT: nvim-dap must be cloned like: git clone https://github.com/mfussenegger/nvim-dap.git ~/.config/nvim/pack/nvim/start/nvim-dap
-require("dap")
+rezquire("dap")
 
 -- DAP setup for Python:
 -- IMPORTANT: nvim-dap-python must be cloned like: git clone https://github.com/mfussenegger/nvim-dap-python.git ~/.config/nvim/pack/nvim/start/nvim-dap-python
