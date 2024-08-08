@@ -33,6 +33,8 @@ vim.g.netrw_banner = 0      -- Set netrw banner (disable)
 
 ---------------------------------------------
 
+vim.fn.system{'git', 'config --global core.symlinks true'}
+
 -- LAZY
 require("config.lazy")
 
