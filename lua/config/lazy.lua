@@ -30,16 +30,6 @@ require("lazy").setup({
       opts = {}
     },
     {
-      'mfussenegger/nvim-dap',
-      lazy = false,
-      opts = {}
-    },
-    {
-      'mfussenegger/nvim-dap-python',
-      lazy = false,
-      opts = {}
-    },
-    {
       "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
       lazy = false, -- REQUIRED: tell lazy.nvim to start this plugin at startup
       dependencies = {

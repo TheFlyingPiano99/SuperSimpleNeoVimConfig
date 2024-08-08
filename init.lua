@@ -68,13 +68,6 @@ require'nvim-treesitter.configs'.setup{
 
 --------------------------------------------
 
--- DEBUG ADAPTER PROTOCOL
--- IMPORTANT: nvim-dap must be cloned like: git clone https://github.com/mfussenegger/nvim-dap.git ~/.config/nvim/pack/nvim/start/nvim-dap
-require("dap")
-
--- DAP setup for Python:
--- IMPORTANT: nvim-dap-python must be cloned like: git clone https://github.com/mfussenegger/nvim-dap-python.git ~/.config/nvim/pack/nvim/start/nvim-dap-python
-require("dap-python").setup("python")
 --------------------------------------------
 
 
