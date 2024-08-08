@@ -44,9 +44,9 @@ Plug('neovim/nvim-lspconfig')
 Plug(
   'nvim-treesitter/nvim-treesitter',
   {
-    ['do'] =  function()
-                vim.fn[':TSUpdate']()
-              end 
+    ['do'] = function()
+      vim.fn[':TSUpdate']()
+    end 
   }
 )
 
@@ -58,6 +58,18 @@ Plug(
   'catppuccin/nvim',
   {
     ['as'] = 'catppuccin'
+  }
+)
+
+Plug('rafamadriz/friendly-snippets')
+
+Plug(
+  'L3MON4D3/LuaSnip',
+  {
+    ['tag'] = 'v2.*',
+    ['do'] = function()
+      vim.cmd('make install_jsregexp')
+    end
   }
 )
 
@@ -103,6 +115,25 @@ require("dap")
 -- DAP setup for Python:
 -- IMPORTANT: nvim-dap-python must be cloned like: git clone https://github.com/mfussenegger/nvim-dap-python.git ~/.config/nvim/pack/nvim/start/nvim-dap-python
 require("dap-python").setup("python")
+--------------------------------------------
+
+-- LUASNIP
+
+local ls = require("luasnip")
+
+vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-J>", function() ls.jump(-1) end, {silent = true})
+
+vim.keymap.set({"i", "s"}, "<C-E>", function()
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
+end, {silent = true})
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
+
 --------------------------------------------
 
 -- COLOR SCHEME
