@@ -39,20 +39,6 @@ require("config.lazy")
 
 -- LSP CONFIGURATION (For linting.)
 
--- Python:
--- IMPORTANT: Ruff v5.3 (or higher version) must be installed separately!
-require('lspconfig').ruff.setup({
-  init_options = {
-    settings = {
-      -- Ruff language server settings go here
-      configurationPreference = "filesystemFirst"
-    }
-  }
-})
-
--- C/C++:
--- IMPORTANT: clangd must be installed separately!
-require'lspconfig'.clangd.setup{}
 
 ---------------------------------------------
 
@@ -68,13 +54,7 @@ require'nvim-treesitter.configs'.setup{
 
 --------------------------------------------
 
---------------------------------------------
-
-
---------------------------------------------
-
 -- COLOR SCHEME
--- IMPORTANT: catppuccin theme must be cloned like: git clone https://github.com/catppuccin/nvim.git ~/.config/nvim/pack/nvim/start/nvim-catppuccin
 
 require("catppuccin")
 vim.cmd("colorscheme catppuccin")
