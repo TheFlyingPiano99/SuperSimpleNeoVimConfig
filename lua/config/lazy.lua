@@ -42,9 +42,11 @@ require("lazy").setup({
       "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
       lazy = false, -- REQUIRED: tell lazy.nvim to start this plugin at startup
       config = function()
+        local lsp = require('lspconfig')
+        local coq = require "coq"
         -- Python:
         -- IMPORTANT: Ruff v5.3 (or higher version) must be installed separately!
-        require('lspconfig').ruff.setup({
+        lsp.ruff.setup({
           init_options = {
             settings = {
               -- Ruff language server settings go here
@@ -55,7 +57,16 @@ require("lazy").setup({
 
         -- C/C++:
         -- IMPORTANT: clangd must be installed separately!
-        require'lspconfig'.clangd.setup{}
+        lsp.clangd.setup{}
+        lsp.ruff.setup(coq.lsp_ensure_capabilities({
+          init_options = {
+            settings = {
+              -- Ruff language server settings go here
+              configurationPreference = "filesystemFirst"
+            }
+          }
+        }))
+        lsp.clangd.setup(coq.lsp_ensure_capabilities({}))
       end,
     },
     {
@@ -78,8 +89,7 @@ require("lazy").setup({
       },
       init = function()
         vim.g.coq_settings = {
-            auto_start = true, -- if you want to start COQ at startup
-            -- Your COQ settings here
+          auto_start = 'shut-up', -- if you want to start COQ at startup
         }
       end,
       config = function()
