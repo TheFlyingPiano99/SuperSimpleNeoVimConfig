@@ -9,5 +9,3 @@ Install the Ruff LSP for Python development or install clangd for C/C++ developm
 
 Run NeoVim by `nvim`!
 
-From NeoVim run the `:COQdeps` editor command to update the COQ dependencies!
-
