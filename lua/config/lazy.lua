@@ -27,15 +27,15 @@ require("lazy").setup({
     {
       'nvim-treesitter/nvim-treesitter',
       lazy = false,
-      opts = {
-        configs = {
+      config = function()
+        require'nvim-treesitter.configs'.setup{
           ensure_installed = {
             "c", "cpp", "lua", "vim", "vimdoc", "javascript", "html",
             "python", "toml", "markdown", "json", "xml", "yaml"
           },
-          highlight={enable=true}
+          highlight = {enable=true}
         }
-      }
+      end
     },
     {
       "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
