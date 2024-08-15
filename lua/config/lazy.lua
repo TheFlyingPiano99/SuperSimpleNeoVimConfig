@@ -27,16 +27,15 @@ require("lazy").setup({
     {
       'nvim-treesitter/nvim-treesitter',
       lazy = false,
-      opts = {},
-      config = function()
-        require'nvim-treesitter.configs'.setup{
+      opts = {
+        configs = {
           ensure_installed = {
             "c", "cpp", "lua", "vim", "vimdoc", "javascript", "html",
             "python", "toml", "markdown", "json", "xml", "yaml"
           },
           highlight={enable=true}
         }
-      end
+      }
     },
     {
       "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
@@ -53,10 +52,6 @@ require("lazy").setup({
         -- C/C++:
         -- IMPORTANT: clangd must be installed separately!
         lsp.clangd.setup{}
-        lsp.ruff.setup{
-            -- Ruff language server settings go here
-            configurationPreference = "filesystemFirst"
-        }  
       end,
     },
     {
@@ -74,3 +69,4 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+
