@@ -14,7 +14,7 @@ local set = vim.opt
 set.hidden = true           -- Allows you to switch between buffers without needing to save the changes in the current buffer first 
 set.swapfile = false        -- Swap file creation
 set.backup = false          -- Backup file creation when saving
-set.hlsearch = false        -- Highlight search results
+set.hlsearch = true         -- Highlight search results
 set.wrap = false            -- Wrap long lines
 set.mouse = 'a'             -- Enable mouse usage in all modes
 set.termguicolors = true    -- Enable 24-bit RGB color
@@ -32,8 +32,6 @@ vim.g.netrw_winsize = 20    -- This option controls the size of the window used 
 vim.g.netrw_banner = 0      -- Set netrw banner (disable)
 
 ---------------------------------------------
-
-vim.fn.system{'git', 'config --global core.symlinks true'}
 
 -- LAZY
 require("config.lazy")

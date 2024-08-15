@@ -43,63 +43,34 @@ require("lazy").setup({
       lazy = false, -- REQUIRED: tell lazy.nvim to start this plugin at startup
       config = function()
         local lsp = require('lspconfig')
-        local coq = require "coq"
         -- Python:
         -- IMPORTANT: Ruff v5.3 (or higher version) must be installed separately!
-        lsp.ruff.setup({
-          init_options = {
-            settings = {
-              -- Ruff language server settings go here
-              configurationPreference = "filesystemFirst"
-            }
-          }
-        })
+        lsp.ruff.setup{
+          -- Ruff language server settings go here
+          configurationPreference = "filesystemFirst"
+        }
 
         -- C/C++:
         -- IMPORTANT: clangd must be installed separately!
         lsp.clangd.setup{}
-        lsp.ruff.setup(coq.lsp_ensure_capabilities({
-          init_options = {
-            settings = {
-              -- Ruff language server settings go here
-              configurationPreference = "filesystemFirst"
-            }
-          }
-        }))
-        lsp.clangd.setup(coq.lsp_ensure_capabilities({}))
+        lsp.ruff.setup{
+            -- Ruff language server settings go here
+            configurationPreference = "filesystemFirst"
+        }  
       end,
     },
     {
-      'catppuccin/nvim',
-      name = "catppuccin",
+      "folke/tokyonight.nvim",
       lazy = false,
       priority = 1000,
+      opts = {},
       config = function()
-        vim.cmd([[colorscheme catppuccin]])
+        vim.cmd([[colorscheme tokyonight-moon]])
       end
     },
-    {
-      "neovim/nvim-lspconfig", -- REQUIRED: for native Neovim LSP integration
-      lazy = false, -- REQUIRED: tell lazy.nvim to start this plugin at startup
-      dependencies = {
-        -- main one
-        { "ms-jpq/coq_nvim", branch = "coq" },
-        -- 9000+ Snippets
-        { "ms-jpq/coq.artifacts", branch = "artifacts" },
-      },
-      init = function()
-        vim.g.coq_settings = {
-          auto_start = 'shut-up', -- if you want to start COQ at startup
-        }
-      end,
-      config = function()
-        -- Your LSP settings here
-      end,
-    }
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
