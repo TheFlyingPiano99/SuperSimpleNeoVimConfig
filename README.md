@@ -1,5 +1,5 @@
 # SuperSimpleNeoVimConfig
-Super simple NeoVim configuration focused on basic text editing with syntax highlighting supporting a range of common languages.
+A super simple NeoVim configuration focused on basic text editing with syntax highlighting supporting a range of common languages.
 
 ## List of the supported languages by default
 
