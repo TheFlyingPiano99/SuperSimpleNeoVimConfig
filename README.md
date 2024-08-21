@@ -1,6 +1,22 @@
 # SuperSimpleNeoVimConfig
-Super simple NeoVim configuration file focused on basic code development in Python or C/C++.
+Super simple NeoVim configuration focused on basic text editing with syntax highlighting supporting a range of common languages.
 
+## List of the supported languages by default
+
+- c
+- cpp
+- python
+- lua
+- vim
+- vimdoc
+- javascript
+- html
+- css
+- markdown
+- json
+- xml
+- yaml
+- toml
 
 # Installation
 Clone the content of this repository to `~/.config/nvim/` (on Linux or MacOS) or to `~/AppData/Local/nvim/` (on Windows)!

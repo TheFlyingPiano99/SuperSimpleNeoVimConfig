@@ -30,8 +30,8 @@ require("lazy").setup({
       config = function()
         require'nvim-treesitter.configs'.setup{
           ensure_installed = {
-            "c", "cpp", "lua", "vim", "vimdoc", "javascript", "html",
-            "python", "markdown", "json", "xml", "yaml", "toml"
+            "c", "cpp", "python", "lua", "vim", "vimdoc", "javascript", "html",
+            "css", "markdown", "json", "xml", "yaml", "toml"
           },
           highlight = {enable=true}
         }
@@ -64,9 +64,8 @@ require("lazy").setup({
       end
     },
   },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  -- automatically check for plugin updates
+  -- automatically check for plugin updates:
   checker = { enabled = true },
+  -- Configure any other settings here. See the documentation for more details.
 })
 
