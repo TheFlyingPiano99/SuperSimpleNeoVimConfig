@@ -31,7 +31,7 @@ require("lazy").setup({
         require'nvim-treesitter.configs'.setup{
           ensure_installed = {
             "c", "cpp", "lua", "vim", "vimdoc", "javascript", "html",
-            "python", "toml", "markdown", "json", "xml", "yaml"
+            "python", "markdown", "json", "xml", "yaml", "toml"
           },
           highlight = {enable=true}
         }
