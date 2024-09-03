@@ -42,3 +42,4 @@ luac.out
 # Packages:
 ./pack
 lazy-lock.json
+package.json
