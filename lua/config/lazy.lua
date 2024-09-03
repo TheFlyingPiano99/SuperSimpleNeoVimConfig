@@ -28,13 +28,6 @@ require("lazy").setup({
       'nvim-treesitter/nvim-treesitter',
       lazy = false,
       config = function()
-        require'nvim-treesitter.configs'.setup{
-          ensure_installed = {
-            "c", "cpp", "python", "lua", "vim", "vimdoc", "javascript", "html",
-            "css", "markdown", "json", "xml", "yaml", "toml", "latex"
-          },
-          highlight = {enable=true}
-        }
 
         local function install_tree_sitter_cli()
           local handle = io.popen("tree-sitter --version")
@@ -68,8 +61,14 @@ require("lazy").setup({
 
         -- Call the function during startup
         install_tree_sitter_cli()
-        vim.cmd.so()
 
+        require'nvim-treesitter.configs'.setup{
+          ensure_installed = {
+            "c", "cpp", "python", "lua", "vim", "vimdoc", "javascript", "html",
+            "css", "markdown", "json", "xml", "yaml", "toml", "latex"
+          },
+          highlight = {enable=true}
+        }
       end
     },
     {
