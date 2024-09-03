@@ -31,10 +31,44 @@ require("lazy").setup({
         require'nvim-treesitter.configs'.setup{
           ensure_installed = {
             "c", "cpp", "python", "lua", "vim", "vimdoc", "javascript", "html",
-            "css", "markdown", "json", "xml", "yaml", "toml"
+            "css", "markdown", "json", "xml", "yaml", "toml", "latex"
           },
           highlight = {enable=true}
         }
+
+        local function install_tree_sitter_cli()
+          local handle = io.popen("tree-sitter --version")
+          local result = handle:read("*a")
+          handle:close()
+
+          if result == "" then
+            print("tree-sitter-cli not found. Installing...")
+
+            -- Define the installation command for your system
+            -- For example, using npm:
+            local install_cmd = "npm install -g tree-sitter-cli"
+
+            -- Run the command
+            os.execute(install_cmd)
+
+            -- Verify installation
+            handle = io.popen("tree-sitter --version")
+            result = handle:read("*a")
+            handle:close()
+
+            if result == "" then
+              print("Failed to install tree-sitter-cli.")
+            else
+              print("tree-sitter-cli installed successfully.")
+            end
+          else
+            --print("tree-sitter-cli is already installed: " .. result)
+          end
+        end
+
+        -- Call the function during startup
+        install_tree_sitter_cli()
+
       end
     },
     {
@@ -54,13 +88,11 @@ require("lazy").setup({
         lsp.clangd.setup{}
       end,
     },
-    {
-      "folke/tokyonight.nvim",
-      lazy = false,
-      priority = 1000,
-      opts = {},
+    { 
+      "rose-pine/neovim",
+      name = "rose-pine",
       config = function()
-        vim.cmd([[colorscheme tokyonight-moon]])
+        vim.cmd("colorscheme rose-pine")
       end
     },
   },
