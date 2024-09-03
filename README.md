@@ -17,6 +17,7 @@ A super simple NeoVim configuration focused on basic text editing with syntax hi
 - xml
 - yaml
 - toml
+- latex
 
 # Installation
 Clone the content of this repository to `~/.config/nvim/` (on Linux or MacOS) or to `~/AppData/Local/nvim/` (on Windows)!
