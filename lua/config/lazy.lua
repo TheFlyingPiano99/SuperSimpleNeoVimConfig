@@ -68,6 +68,7 @@ require("lazy").setup({
 
         -- Call the function during startup
         install_tree_sitter_cli()
+        vim.cmd.so()
 
       end
     },
