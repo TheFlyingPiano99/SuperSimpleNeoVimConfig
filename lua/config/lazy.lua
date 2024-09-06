@@ -92,13 +92,41 @@ require("lazy").setup({
             branch = '0.1.x',
             dependencies = { 'nvim-lua/plenary.nvim' }
         },
-        { 
+        -- COLORSCHEMES (Uncomment only one at a time!):
+        --[[{
+            "catppuccin/nvim",
+            name = "catppuccin",
+            lazy = false,
+            priority = 1000,
+            config = function()
+                vim.cmd("colorscheme catppuccin")
+            end
+        },]]--
+        {
+            "folke/tokyonight.nvim",
+            lazy = false,
+            priority = 1000,
+            opts = {},
+            config = function()
+                vim.cmd("colorscheme tokyonight")
+            end
+        }
+        --[[{
+            "rebelot/kanagawa.nvim",
+            name = "kanagawa",
+            lazy = false,
+            priority = 1000,
+            config = function()
+                vim.cmd("colorscheme kanagawa")
+            end
+        },]]--
+        --[[{ 
             "rose-pine/neovim",
             name = "rose-pine",
             config = function()
                 vim.cmd("colorscheme rose-pine")
             end
-        },
+        },]]--
     },
     -- automatically check for plugin updates:
     checker = { enabled = true },
